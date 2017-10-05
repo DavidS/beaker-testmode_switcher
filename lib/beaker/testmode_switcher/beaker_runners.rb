@@ -60,6 +60,7 @@ module Beaker
       # execute an arbitrary command on the default host
       def shell_ex(cmd, opts = {})
         cmd = "cd #{opts[:chdir]}; " + cmd if opts.key? :chdir
+        opts[:accept_all_exit_codes] = true
         shell(cmd, opts)
       end
     end
